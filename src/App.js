@@ -44,14 +44,18 @@ const [repositories,setRepositories]=useState([]);
           <>
               <Text style={styles.repository}>{repository.title}</Text>
 
-              <View style={styles.techsContainer}>
-                <Text style={styles.tech}>
-                  ReactJS
+<FlatList 
+data={repository.techs}
+style={styles.techsContainer}
+keyExtractor={e=>e.id}
+renderItem={({item:tech})=>(
+  <>
+<Text style={styles.tech}>
+{tech}
                 </Text>
-                <Text style={styles.tech}>
-                  Node.js
-                </Text>
-              </View>
+  </>)}
+/>
+              
 
               <View style={styles.likesContainer}>
                 <Text
